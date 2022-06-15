@@ -1,0 +1,13 @@
+services:
+  wg:
+    build:
+      context: .
+    cap_add:
+    - NET_ADMIN
+    - SYS_MODULE
+    sysctls:
+      net.ipv4.conf.all.src_valid_mark: 1
+    environment:
+      INTERFACE: wg0
+    volumes:
+    - ./wg0.conf:/etc/wireguard/wg0.conf

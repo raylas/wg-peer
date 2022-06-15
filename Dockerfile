@@ -1,7 +1,8 @@
-FROM alpine:3.12.3
+FROM alpine:3.16.0
 
 RUN apk add iptables iproute2 wireguard-tools
 
-COPY run.sh /run.sh
+COPY entrypoint.sh /entrypoint.sh
 
-CMD ["/run.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
+

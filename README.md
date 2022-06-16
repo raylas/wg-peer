@@ -31,8 +31,6 @@ To use the WireGuard container as a network gateway for other Compose services, 
   network_mode: "service:wg"
 ```
 
-Where `wg` is the name of the Compose service running **wg-peer**.
+Where `wg` is the name of the Compose service running **wg-peer**. This essentially forces the specified service to be the default route for network traffic. [Read more](https://docs.docker.com/compose/compose-file/#network_mode) about `network_mode`.
 
-This essentially forces the specified service to be the default route for network traffic. 
-
-[Read more](https://docs.docker.com/compose/compose-file/#network_mode) about `network_mode`.
+Additionally, if you're utilizing service port forwarding, move the port-forwards to the `wg` service.
